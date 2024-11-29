@@ -1,0 +1,675 @@
+<html>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+   integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css" rel="stylesheet" />
+<style>
+ 
+
+   .navigation {
+      width: 100%;
+      height: 55px;
+      background-color: black;
+      color: white;
+      position: sticky;
+      top: 0;
+
+   }
+
+   .navigation img{
+      width: 5%;
+      height: 99%;
+      margin-left: .5%;
+
+   }
+   .home-button{
+      color: white; 
+      font-weight: 350;
+      font-size: 1.2rem;
+      background-color: black;
+      border-radius: 4px;
+      border:solid;
+      border-width: 2px;
+      border-color: black;
+      
+   }
+   .home-button:hover{
+      color: #949393;
+      
+   }
+
+   #title {
+      color: white;
+      /* background-color: rgb(45, 42, 42);     */
+      font-size: 120%;
+      margin-left: 30%;
+      border-radius: 50px;
+      padding: 0.5%;
+
+   }
+
+   .filling {
+      width: 90%;
+
+   }
+
+   .lbl {
+      margin-top: 20px;
+      text-decoration: none;
+      font-size: 1.2rem;
+      color: white;
+      display: block;
+      transition: 0.3s;
+   }
+
+   .lbl:hover {
+      color: #a19f9f;
+   }
+
+
+
+
+
+   .sidenav {
+      margin-top: 55px;
+      padding-left: 1%;
+      padding-top: 0%;
+      height: 100%;
+      width: 300px;
+      position: fixed;
+      background-color: rgb(37, 35, 35);
+      z-index: 1;
+      top: 0;
+      left: 0;
+      transition: .2s;
+      padding-top: 60px;
+      display: block;
+
+   }
+
+
+   #main {
+      margin-left: 300px;
+      padding: 5%;
+      transition: .5s;
+   }
+
+
+
+   .dataframe {
+
+      font-family: Arial, Helvetica, sans-serif;
+      border-collapse: separate;
+      border-spacing: 0;
+      width: 100%;
+   }
+
+
+
+
+
+
+
+
+   #customers {
+
+      font-family: Arial, Helvetica, sans-serif;
+      /* border-collapse: collapse; */
+      border-collapse: separate;
+      border-spacing: 0;
+      width: 100%;
+      margin-top: 20px;
+
+   }
+
+   #customers td,
+   #customers th {
+      border-top: 1px solid #ddd;
+      border-bottom: 1px solid #ddd;
+      border-right: 1px solid #ddd;
+      padding: 8px;
+   }
+
+
+   #customers tr:nth-child(even) {
+      background-color: #f2f2f2;
+   }
+
+   #customers tr:hover {
+      background-color: #ddd;
+   }
+
+   #customers th {
+      padding-top: 12px;
+      padding-bottom: 12px;
+      text-align: left;
+      background-color: black;
+      color: white;
+   }
+
+   #customers {
+
+      font-family: Arial, Helvetica, sans-serif;
+      /* border-collapse: collapse; */
+      border-collapse: separate;
+      border-spacing: 0;
+      width: 100%;
+      margin-top: 20px;
+
+   }
+
+   #customers td,
+   #customers th {
+      border-top: 1px solid #ddd;
+      border-bottom: 1px solid #ddd;
+      border-right: 1px solid #ddd;
+      padding: 8px;
+   }
+
+
+   #customers tr:nth-child(even) {
+      background-color: #f2f2f2;
+   }
+
+   #customers tr:hover {
+      background-color: #ddd;
+   }
+
+   #customers th {
+      padding-top: 12px;
+      padding-bottom: 12px;
+      text-align: left;
+      background-color: black;
+      color: white;
+   }
+
+   /* c */
+
+   #dt {
+
+      font-family: Arial, Helvetica, sans-serif;
+      /* border-collapse: collapse; */
+      border-collapse: separate;
+      border-spacing: 0;
+      width: 400px;
+      margin-top: 20px;
+
+   }
+
+   #dt td,
+   #dt th {
+      border-top: 1px solid #ddd;
+      border-bottom: 1px solid #ddd;
+      border-right: 1px solid #ddd;
+      padding: 8px;
+   }
+
+
+   #dt tr:nth-child(even) {
+      background-color: #f2f2f2;
+   }
+
+   #dt tr:hover {
+      background-color: #ddd;
+   }
+
+   #dt th {
+      padding-top: 12px;
+      padding-bottom: 12px;
+      text-align: left;
+      background-color: black;
+      color: white;
+   }
+   .loader{
+      display: none;
+      margin-top: 15%;
+      margin-left:45%;
+      margin-bottom: 5000%;
+   
+      
+    }
+    .loader img{
+      width: 5%;
+      height: 8%;
+      position: fixed;
+      top: 40%;
+      
+    }
+  .disp{
+   display: block;
+  }
+</style>
+
+<body>
+
+   <div class="navigation">
+      <div>
+      <a href="/"><img src="{{url_for('static', filename='/logo.jpg')}}"><button type="button" class="Home-button"  style="margin-left: 20px;">Home</button></a> 
+      <!-- <a href="/help"><button type="button" class="Home-button"  style="margin-left: 20px;">Help</button></a>  -->
+      <a href="/eol"><button type="button" class="Home-button"  style="margin-left: 20px;">EOL Details</button></a> 
+          
+
+      <span id="title"> APAC Inventory Dashboard</span>
+   </div>
+   
+   </div>
+ 
+
+   <!-- for displaying the side filtering menu bar-->
+
+   <div class="sidenav" id="mySidenav" style="padding-top: 0px; display: block;">
+      <span class="lbl" id="close_butn" style="font-size:30px; margin-top: 0%; margin-left:90%; cursor:pointer"
+         onclick="closeNav()">&larr;</span>
+
+
+
+      <div id="content">
+
+         <!-- Form displaying the filters-->
+         <a href="{{ url_for('upp') }}">
+            <button id="update-data-file" class="btn btn-outline-light" style="margin-top:40px;">Update Data
+               file</button>
+
+         </a>
+
+         <form id="dataform" action="/" method="POST">
+
+            <div class=" col align-self-start ">
+
+               
+               <label class="lbl" for="sheet" data-bs-toggle="tooltip" data-bs-placement="top" title="Please unselect all the filters before changing the Region!!"> Select Region: </label>
+              
+                   
+
+               <select class="form-control filling" id="sheet" name="sheet" onchange="showloader(); this.form.submit()">
+                  <br>
+                  <option value="" disabled selected>Select</option>
+
+
+
+
+                  {% for sheet in sheet_names %}
+
+                  <option value="{{sheet}}" {% if selected_sheet==sheet %} selected {% endif %}> {{sheet}}</option>
+
+                  {% endfor %}
+
+               </select>
+
+            </div>
+
+            {% if selected_sheet %}
+
+
+            <div class="col align-self-start">
+
+               <label class="lbl" for="location"> Select Location: </label>
+
+               <select class="form-control filling multisel" name="location" onchange="showloader(); this.form.submit()" multiple>
+
+                  {% for loc in location %}
+
+                  <option value="{{loc}}" {% if loc in selected_location %} selected {% endif %}>{{loc}}</option>
+
+                  {% endfor %}
+               </select>
+
+            </div>
+
+
+            <div class="col align-self-start" style=" margin-top: 1%;">
+
+               <label class="lbl" for="model_class"> Select Model Class: </label>
+
+
+               <select class="form-control filling multisel" name="model_class" onchange="showloader(); this.form.submit()" multiple>
+
+                  {% for mod in model_class %}
+
+                  <option value="{{mod}}" {% if mod in selected_model_class %} selected {% endif %}>{{mod}}</option>
+
+                  {% endfor %}
+               </select>
+            </div>
+
+            <div class="col align-self-start">
+
+               <label class="lbl" for="model_type"> Select Model Type: </label>
+
+
+               <select class="form-control filling multisel" name="model_type" onchange="showloader(); this.form.submit()" multiple>
+
+                  {% for modtp in model_type %}
+
+                  <option style="margin-left: 10%;" value="{{modtp}}" {% if modtp in selected_model_type %} selected {%
+                     endif %}>{{modtp}}</option>
+
+                  {% endfor %}
+
+               </select>
+
+            </div>
+
+            {% endif %}
+         </form>
+      </div>
+
+   </div>
+
+   <span id="open_butn" style="font-size:30px;cursor:pointer; width: 30px; margin-left: 20px;"
+      onclick="openNav()">&#9776;</span>
+
+      
+     
+
+   <div id="main">
+  
+      
+      <div style="padding: 0px;"  id="loader" class="loader">
+      <img src="{{url_for('static', filename='/loader (1).gif')}}" width="100px"> 
+   </div>
+
+
+<div class="disp">
+
+
+
+      {% if selected_sheet %}
+
+      <table id="dt">
+
+         <tr>
+            <th style=" border-top-color: white; text-align: center;" colspan="2">Region: {{selected_sheet}}</th>
+
+         </tr>
+         <tr>
+            <th>City</th>
+
+            <th>Numbers</th>
+         </tr>
+
+         {% for dict in dict_list %}
+
+         <tr>
+            <td>{{ dict["city"]}}</td>
+
+            <td>{{ dict["no_router"] }}</td>
+         </tr>
+         {% endfor %}
+         <tr>
+            <td>Total Devices:</td>
+            <td>{{tot_router}}</td>
+         </tr>
+
+      </table>
+
+
+
+
+
+      <button id="show-details" class="btn btn-outline-dark" style="margin-top:40px;">Show Details</button>
+
+
+      <button id="scroll-top" class="btn btn-outline-dark"
+         style=" display: none; padding: 1px 10px;   position: fixed; border-radius: 10%; right: 0px;top: 90%; font-size: 20px; "
+         onclick="gotop()">&#129045;</button>
+
+
+
+      <div id="customers" style="margin-top:20px; display:none;">
+
+
+         <div style=" background-color: white; text-align: right; margin-right:1%;">
+            <button id="download_csv" class="btn btn-outline-dark">Download CSV</button>
+         </div>
+
+         {% for dict in dict_list %}
+         <h5 style="margin-top:20px; ">Table for <span class="cityname">{{ dict["city"]}} </span>:</h5>
+
+         {{ dict["city table"]|safe }}
+
+
+         {% endfor %}
+      </div>
+      {% endif %}
+
+
+      <!-- when the sheet is not selected (landing page details) -->
+      {% if not selected_sheet %}
+
+
+      <div class="row">
+         {% for dict in no_filter_dict_list %}
+
+         <div class="col">
+
+            <table id="customers">
+
+               <tr>
+                  <th style=" border-top-color: white; position: sticky; top: 55; " colspan="2">Region: {{dict["region"]}}</th>
+               </tr>
+
+               {% for d in dict["lists"] %}
+
+               <tr>
+                  <td>{{ d["city"]}}</td>
+
+                  <td>{{ d["no_router"] }} </td>
+               </tr>
+               {% endfor %}
+               <tr>
+                  <td>Total Devices:</td>
+
+                  <td>{{dict["tot_router"] }} </td>
+               </tr>
+
+
+            </table>
+
+
+         </div>
+
+         {% endfor %}
+
+      </div>
+
+
+
+
+      {% endif %}
+
+   </div>
+
+
+
+
+
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+      <script>
+
+      </script>
+
+
+
+
+
+
+
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>
+      <script>
+
+         //select2 is for the css of the side navigation bar (filtering menu dashboard)
+
+         $(".multisel").select2({
+            placeholder: "   Default (ALL)",
+            allowClear: true
+         });
+
+
+         //function to open the side navigation bar (filtering menu dashboard)
+
+         function openNav() {
+
+            document.getElementById("mySidenav").style.width = "300px";
+            document.getElementById("mySidenav").style.paddingLeft = "1%";
+            document.getElementById("content").style.display = "block";
+            document.getElementById("main").style.marginLeft = "300px";
+            document.getElementById("open_butn").style.display = "none";
+            document.getElementById("close_butn").style.display = "block";
+         }
+
+         //function to close the side navigation bar (filtering menu dashboard)
+
+         function closeNav() {
+
+            document.getElementById("mySidenav").style.width = "0px";
+            document.getElementById("mySidenav").style.padding = "0px";
+            document.getElementById("content").style.display = "none";
+            document.getElementById("main").style.marginLeft = "0";
+            document.getElementById("open_butn").style.display = "block";
+            document.getElementById("close_butn").style.display = "none";
+
+         }
+
+         //function to toggle the display of the show details button, here we are using the js script for the function declaration
+
+         function showdetails() {
+
+            var x = document.getElementById("customers");
+            var butn = document.getElementById("show-details")
+            if (x.style.display === "none") {
+               x.style.display = "block";
+               butn.innerText = "Hide Details"
+            }
+            else {
+               x.style.display = "none";
+               butn.innerText = "Show Details"
+            }
+         }
+
+         //function to toggle toggle the display of show details button, here we are using jquery for the function declaration 
+
+         $(document).ready(function () {
+            $("#show-details").click(function () {
+               $("#customers").slideToggle(500);
+
+               if ($("#show-details").text() == "Show Details") {
+                  $("#show-details").text("Hide Details");
+               } else {
+                  $("#show-details").text("Show Details");
+               };
+            });
+         });
+
+
+         //function to add the required header on the multiple tables that are laoded on the page.
+
+         document.addEventListener("DOMContentLoaded", function () {
+            const tables = document.querySelectorAll(".data-table");
+
+            tables.forEach((table, index) => {
+               const headers = table.querySelectorAll("thead");
+
+
+               headers[0].innerHTML = `<tr style="text-align: right;">
+                                 <th>Host Name</th>
+                                  <th>IP</th>
+                                   <th>Model Class</th>              
+                                     <th>Model Type</th> 
+                                    <th>Serial Number</th>               
+                                  </tr>`;
+
+
+            });
+
+         });
+
+         //function to convert the tables into a csv file
+         document.addEventListener("DOMContentLoaded", function () {
+            function tabletocsv() {
+               let csv = ""
+               const tables = document.querySelectorAll(".data-table");
+               const citynames = document.querySelectorAll(".cityname")
+
+               tables.forEach((table, index) => {
+                  const rows = table.querySelectorAll("tr");
+
+                  csv += `${citynames[index].innerText} \n`;
+
+                  rows.forEach(row => {
+
+                     const cells = row.querySelectorAll("th, td");
+                     const rowdata = Array.from(cells).map(cell => `"${cell.textContent}"`).join(",");
+                     csv += rowdata + "\n";
+                  });
+                  csv += "\n";
+               });
+               return csv;
+            }
+            //function to download the csv from the browser
+            function downloadcsv(csv, filename) {
+               const blob = new Blob([csv], { type: 'text/csv' });
+
+               const downloadlink = document.createElement("a");
+               downloadlink.download = filename;
+               downloadlink.href = window.URL.createObjectURL(blob);
+               downloadlink.style.display = "none";
+
+               document.body.appendChild(downloadlink);
+               downloadlink.click();
+
+               document.body.removeChild(downloadlink);
+            }
+
+
+            document.getElementById("download_csv").addEventListener("click", function () {
+               const csv = tabletocsv();
+               downloadcsv(csv, "{{selected_sheet}}.csv");
+            });
+
+
+         });
+
+
+
+         //function for toggling the display style of the scroll-top button
+         const butn = document.getElementById('scroll-top');
+         window.addEventListener('scroll', function () {
+            if (window.scrollY > 500) {
+               butn.style.display = 'block';
+            }
+
+            else {
+               butn.style.display = 'none';
+            }
+         });
+
+
+         //function for scroll-top button operation
+
+         function gotop() {
+            window.scrollTo({ top: 0, behavior: "smooth" });
+            butn.style.display = "none";
+         };
+// function to enable loader icon when loading the page
+
+function showloader(){
+   document.getElementById("loader").style.display = "block"
+  
+   
+};
+
+
+
+
+
+
+
+
+
+
+      </script>
+
+</html>
